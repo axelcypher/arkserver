@@ -15,6 +15,9 @@ COPY log.sh /home/steam/log.sh
 
 RUN mkdir /ark && \
     chown -R steam:steam /home/steam/ /ark
+    
+RUN mkdir /cluster && \
+    chown -R steam:steam /home/steam/ /cluster
 
 RUN echo "%sudo   ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers && \
     usermod -a -G sudo steam && \
@@ -23,15 +26,20 @@ RUN echo "%sudo   ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers && \
 WORKDIR /home/steam
 USER steam
 
-ENV am_ark_SessionName="Ark Server" \
+ENV am_ark_SessionName="theMIGHTYark" \
     am_serverMap="TheIsland" \
     am_ark_ServerAdminPassword="k3yb04rdc4t" \
     am_ark_MaxPlayers=70 \
     am_ark_QueryPort=27015 \
     am_ark_Port=7778 \
     am_ark_RCONPort=32330 \
-    am_arkwarnminutes=15
+    am_arkwarnminutes=15 \
+    am_ark_GameModIds="731604991,1404697612,1814953878,2121156303,1428596566,895711211" \
+    arkopt_ClusterDirOverride="/cluster" \
+    arkopt_clusterid="themightycluster"
+    
 
 VOLUME /ark
+VOLUME /cluster
 
 CMD [ "./run.sh" ]
