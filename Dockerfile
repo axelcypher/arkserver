@@ -36,8 +36,14 @@ ENV am_ark_SessionName="theMIGHTYark" \
     am_arkwarnminutes=15 \
     am_ark_GameModIds="731604991,1404697612,1814953878,2121156303,1428596566,895711211" \
     arkopt_ClusterDirOverride="/cluster" \
-    arkopt_clusterid="themightycluster"
-    
+    arkopt_clusterid="themightycluster" \
+    am_arkflag_NoTransferFromFiltering="" \
+    am_ark_PreventDownloadSurvivors="False" \
+    am_ark_PreventDownloadItems="False" \
+    am_ark_PreventDownloadDinos="False" \
+    am_ark_PreventUploadSurvivors="False" \
+    am_ark_PreventUploadItems="False" \
+    am_ark_PreventUploadDinos="False"
 
 VOLUME /ark
 VOLUME /cluster
